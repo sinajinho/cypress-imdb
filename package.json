@@ -4,13 +4,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:run": "npx cypress run --headless --browser electron --spec 'cypress/e2e/01_imdb.cy.js'"
+    "imdb:headless": "npx cypress run --headless --browser electron --spec cypress/e2e/01_imdb.cy.js --reporter mocha-allure-reporter",
+    "imdb:headed": "npx cypress run --browser=chrome --headed --spec cypress/e2e/01_imdb.cy.js --reporter mocha-allure-reporter",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open  allure-report",
+    "clean:allure": "rm -rf allure-results"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "cypress": "^13.15.0"
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.31.0",
+    "cypress": "^13.15.0",
+    "mocha-allure-reporter": "^1.4.0"
   }
 }

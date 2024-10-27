@@ -34,14 +34,10 @@ export default {
 
     printCelebrities(celebritiesAmount) {
         pages.celebritySummaryName().then(($celebrities) => {
-            const names = [];
-            $celebrities.each((index, element) => {
-                if (index < celebritiesAmount) {
-                    names.push(element.innerText);
-                }
-            });
-            console.log('First five celebrities born today from list:', names);
-            cy.log('First five celebrities born today from list: ' + names.join(', '));
+            const names = Array.from($celebrities).slice(0, celebritiesAmount).map(el => el.innerText);
+            
+            console.log('First celebrities born today from list:', names);
+            cy.log('First celebrities born today from list: ' + names.join(', '));
         });
     },
 }

@@ -46,11 +46,32 @@ This project contains an automated test for IMDb using Cypress.
 
    Click on 01_imdb.cy.js in the specs section inside the cypress/e2e folder.
 
-### Running tests in Headless Mode
+### Running tests in headed mode and with Allure report
 
-1. Instead of running tests locally you can run tests in headless mode. You should not have Cypress open before running the script
+1. Start test runner with a imdb headed script (Cypress should be closed)
    ```bash
-   npm run cypress:run
+   npm run imdb:headed
+
+2. After runner is finished, check test results with Allure report
+   ```bash
+   npm run report:allure
+
+3. Clean Allure results (Optional)
+   ```bash
+   npm run clean:allure
+
+### Running tests in headless mode and with Allure report
+
+1. Start test runner with a imdb headless script (Cypress should be closed)
+   ```bash
+   npm run imdb:headless
 
 2. After run is finished then test results are displayed in the cypress terminal
-   - Additionaly you can see the result from video from cypress/videos/ folder
+
+3. Check test results with Allure report
+   ```bash
+   npm run report:allure
+
+4. Clean Allure results (Optional)
+   ```bash
+   npm run clean:allure
