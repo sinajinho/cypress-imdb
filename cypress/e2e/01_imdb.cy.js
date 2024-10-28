@@ -14,6 +14,7 @@ describe('Imdb Test Suite', () => {
         imdb.checkMenuCategoryName(categoryName)
         imdb.navigateToSubCategory(subCategory);
         imdb.checkCelebrityListVisible();
+        imdb.checkCelebrityNameNumbering(celebritiesAmount);
         imdb.printCelebrities(celebritiesAmount); // Names are printed to cypress and browser console
     });
   });

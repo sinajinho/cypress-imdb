@@ -40,4 +40,20 @@ export default {
             cy.log('First celebrities born today from list: ' + names.join(', '));
         });
     },
+
+    checkCelebrityNameNumbering(celebritiesAmount) {
+        pages.celebritySummaryName().then(($celebrities) => {
+            const names = Array.from($celebrities).slice(0, celebritiesAmount).map(el => el.innerText);
+            
+            // Confirm numbering for each celebrity
+            names.forEach((name, index) => {
+                const expectedNumber = index + 1;
+                const message = `${expectedNumber}. ${name}`;
+                console.log(message);
+                
+                // Check that celebrity number matches the expected number
+                expect(index + 1).to.equal(expectedNumber, `Celebrity ${name} is numbered correctly.`);
+            });
+        });
+    },
 }
